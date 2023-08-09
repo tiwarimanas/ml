@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<div class="container position-absolute top-50 start-50 translate-middle bg-black py-4 rounded-5">
+<div class="container position-absolute top-50 start-50 translate-middle">
     <div class="text-center my-3">
         <span class="fs-3 fw-bolder text-warning">Mask Detection</span>
         <span class="fs-5 fw-bolder">ML Model</span>
@@ -34,14 +34,19 @@
 
     <button class="btn btn-dark btn-lg w-100 my-2 rounded-4" onclick="init()" id="sbtn">Launch <i class="bi-camera-video"></i></button>
     <hr>
-    <div class="row">
-        <div class="col-sm-6">
-                <center><div id="webcam-container" class="my-2 bg-dark" style="width: 200px;height: 200px; border-radius: 30px;"></div></center>
-        </div>
-        <div class="col-sm-6">
-            <div id="label-container" class="my-2 h-100 rounded-5 p-3 fw-bolder"></div>
-        </div>
+<div class="card mb-3 w-100">
+  <div class="row g-0">
+    <div class="col-md-4">
+        <div id="webcam-container" class="my-2 bg-dark img-fluid rounded-start" style="width: 200px;height: 200px; border-radius: 30px;"></div>
     </div>
+    <div class="col-md-8">
+      <div class="card-body">
+       <div id="label-container" class="my-2 h-100 rounded-5 p-3 fw-bolder"></div>
+      </div>
+    </div>
+  </div>
+    
+</div>
 
 </div>
 
