@@ -14,9 +14,10 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
+            transition-duration: 0.3s;
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/0e14554280.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,31 +25,49 @@
 </head>
 
 <body>
-<div class="container position-absolute top-50 start-50 translate-middle">
-    <div class="text-center my-3">
-        <span class="fs-3 fw-bolder text-warning">Mask Detection</span>
-        <span class="fs-5 fw-bolder">ML Model</span>
-        <br>
-        <span class="fs-6">From Manas Tiwari</span>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand bg-black rounded-5 p-1 px-2" href="#">
+                <i class="fa-brands fa-github"></i>
+                Manas Tiwari
+            </a>
+        </div>
+    </nav>
+
+
+
+    <div class="container" style="height: 80vh;">
+        <div class="card position-absolute top-50 start-50 translate-middle bg-black rounded-5 border"
+            style="width: 240px;">
+            <div id="webcam-container" class="bg-dark card-img-top rounded-top-5" style="width: 240px;height: 200px;">
+            </div>
+            <div class="card-body">
+                <div id="label-container" class="my-2 h-100"></div>
+                <hr>
+                <button class="btn btn-dark btn-lg w-100 rounded-5" onclick="init()" id="sbtn">
+                    Start <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+            
+        </div>
+
     </div>
 
-    <button class="btn btn-dark btn-lg w-100 my-2 rounded-4" onclick="init()" id="sbtn">Launch <i class="bi-camera-video"></i></button>
-    <hr>
-<div class="card mb-3 w-100">
-  <div class="row g-0">
-    <div class="col-md-4">
-        <div id="webcam-container" class="my-2 bg-dark img-fluid rounded-start" style="width: 200px;height: 200px; border-radius: 30px;"></div>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-       <div id="label-container" class="my-2 h-100 rounded-5 p-3 fw-bolder"></div>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <img style="height:20px;" src="https://seeklogo.com/images/T/tensorflow-logo-02FCED4F98-seeklogo.com.png" alt="">
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">Tensorflow.js</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-github"></i></a></li>
+            <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-solid fa-globe"></i></a></li>
+          </ul>
+        </footer>
       </div>
-    </div>
-  </div>
-    
-</div>
-
-</div>
 
 
 
@@ -67,9 +86,8 @@
 
         // Load the image model and setup the webcam
         async function init() {
-            sbtn.innerHTML = ` <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>`;
+            sbtn.innerHTML = `<i class="fa-solid fa-camera fa-beat-fade"></i>`;
+            sbtn.disabled = true;
 
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
@@ -83,24 +101,35 @@
 
             // Convenience function to setup a webcam
             const flip = true; // whether to flip the webcam
-            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+            webcam = new tmImage.Webcam(240, 200, flip); // width, height, flip
             await webcam.setup(); // request access to the webcam
             await webcam.play();
             window.requestAnimationFrame(loop);
-            
-            webcam.canvas.style = "border-radius:30px;";
+
+            webcam.canvas.style = "border-top-left-radius: 30px; border-top-right-radius:30px;";
 
             // append elements to the DOM
             document.getElementById("webcam-container").appendChild(webcam.canvas);
 
             labelContainer = document.getElementById("label-container");
 
-            for (let i = 0; i < maxPredictions; i++) { // and class labels
-                labelContainer.appendChild(document.createElement("div"));
+            const colors = ['text-bg-success', 'text-bg-primary', 'text-bg-danger', 'text-bg-warning', 'text-bg-secondary'];
+
+            for (let i = 0; i < maxPredictions; i++) {
+                const newDiv = document.createElement("div");
+                const colorIndex = i % colors.length;
+                newDiv.innerHTML =
+                    ` 
+                    <span>With Mask</span>
+                    <br>
+                    <div class="${colors[colorIndex]} rounded-3 p-1 my-1 text-end" style="height:30px;"></div>
+                    `;
+                labelContainer.appendChild(newDiv).querySelector;
             }
 
-            sbtn.innerHTML = `Started <i class="bi bi-patch-check"></i>`;
-            sbtn.disabled = true;
+
+            sbtn.innerHTML = `Started <i class="fa-solid fa-circle-check"></i>`;
+            
         }
 
         async function loop() {
@@ -111,14 +140,21 @@
 
         // run the webcam image through the image model
         async function predict() {
-            // predict can take in an image, video or canvas html element
             const prediction = await model.predict(webcam.canvas);
             for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
+                const percent = (prediction[i].probability * 100).toFixed(0);
+                labelContainer.childNodes[i].querySelector("span").innerHTML = prediction[i].className;
+                labelContainer.childNodes[i].querySelector("div").style.width = percent + '%';
+                if (percent < 50) {
+                    labelContainer.childNodes[i].querySelector("div").innerHTML = "";
+                } else {
+                    labelContainer.childNodes[i].querySelector("div").innerHTML = percent + '%';
+                }
+                console.log(prediction[i]);
             }
         }
+
+
     </script>
 
 </body>
