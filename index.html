@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDC</title>
+  <style>
+    /* Import Google font - Poppins */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      transition-duration: 0.3s;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://kit.fontawesome.com/0e14554280.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="h-100 w-100 bg-black position-fixed top-0 start-0 z-3 animate__animated" id="loginScreen">
+    <!-- <span class="position-absolute top-50 start-50 translate-middle fw-bolder text-center"
+      style="font-size: 100px; color: rgba(26, 26, 26, 0.521);">EYE DISEASE CLASSIFIER</span> -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center">
+      <h1 class="animate__animated animate__fadeInUp" style="font-size: 100px;">
+        <i class="fa-solid fa-eye"></i>
+      </h1>
+      <br />
+      <button onclick="offloginScreen()" class="btn btn-dark animate__animated animate__fadeInUp">
+        Start <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <br><br>
+      <p class="text-secondary animate__animated animate__fadeInUp"> <span
+          class="badge text-warning border border-warning">Experimental Model</span> <br> From Manas Tiwari</p>
+    </div>
+  </div>
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand bg-black rounded-5 p-1 px-2" href="#">
+        <i class="fa-brands fa-github"></i>
+        Manas Tiwari
+      </a>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-sm-6 my-2">
+
+        <div class="card bg-black rounded-5 border" style="width: 240px; margin: auto;">
+          <img id="input-image" src="showcase.jfif" alt="Input Image" width="240" height="240"
+            class="bg-dark card-img-top rounded-5">
+          <!-- <div id="webcam-container" class="bg-dark card-img-top rounded-top-5" style="width: 240px;height: 200px;">
+                </div> -->
+          <div class="card-body">
+            <div id="classbox" class="text-center text-warning fw-bolder"></div>
+
+            <div class="dropdown">
+              <button class="btn w-100 rounded-5 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+
+              </button>
+              <div class="dropdown-menu p-2 rounded-4" style="width: 200px;">
+                <div id="label-container" class="my-2 h-100"></div>
+              </div>
+            </div>
+            <hr>
+            <input type="file" class="form-control my-1 rounded-5 my-2 d-none" id="image-input" accept="image/*"
+              style="font-size: 12px;">
+            <label for="image-input" class="btn btn-dark w-100 my-2 rounded-5"><i
+                class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image</label>
+            <button class="btn btn-dark w-100 rounded-5" onclick="init()" id="sbtn">
+              Predict <i class="fa-brands fa-stumbleupon-circle text-warning"></i></button>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-sm-6 my-2">
+        <div class="card card-body rounded-5 bg-black" style="height: 70vh; overflow-y: scroll;">
+          <h4 class="fw-bolder">Analysis Result</h4>
+          <hr>
+          <div id="typing-text" class="animate__animated animate__fadeIn">
+          <div class="text-secondary">
+            <h5>Using the Model: Quick Guide</h5>
+            <p>Here, you'll find the analysis results.</p>
+            <ol>
+              <li><strong>Upload Image:</strong> Begin by uploading a fundus image and clicking the "Predict" button to
+                receive predictions.</li>
+              <li><strong>Confidence Percentage:</strong> To gain more insight, click the dropdown button to view the
+                model's confidence percentage associated with its predictions.</li>
+            </ol>
+            <p><span class="text-danger fw-bolder">Remember</span> , the model's predictions might be inaccurate due to
+              its experimental nature. Use these insights as helpful hints, but don't rely solely on them.</p>
+          </div>
+        </div>
+          <!-- <button class="btn btn-dark position-absolute rounded-5 bottom-0 start-50 translate-middle w-75">Generate
+            Report</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <hr>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item rounded-top-5 border-0">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-black rounded-top-5 fw-bolder" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            What is Fundus Imaging ?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-black ">
+            <p>Fundus imaging is a specialized medical technique used to take pictures of the back of your eye, which is
+              called the <em>fundus</em>. The fundus includes important parts like the retina, blood vessels, and the
+              optic nerve. These parts play a big role in your vision and overall eye health.</p>
+
+            <p>During fundus imaging, a special camera or device is used to capture detailed images of the inside of
+              your eye. This helps eye doctors (ophthalmologists) see if there are any issues or changes happening in
+              your eye that might affect your vision or indicate underlying health problems.</p>
+
+            <p>The procedure is usually painless and quick. You'll likely be given eye drops to make your pupils larger,
+              which helps the doctor get a better view of your fundus. Then, you'll be asked to look at a certain spot
+              while the camera takes pictures. These images are valuable because they can show things like blood vessel
+              abnormalities, signs of diabetes, glaucoma, macular degeneration, and other eye conditions.</p>
+
+            <p>Fundus imaging is an essential tool for eye doctors to monitor your eye health, catch problems early, and
+              create effective treatment plans if needed. It's like taking a snapshot of the inner workings of your eye
+              to keep an eye on your overall well-being.</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item border-0">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-black fw-bolder" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            How Does This Work?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-black">
+            <p><strong>Machine learning models</strong> for <strong>classifying diseases through images</strong> work a
+              lot like how our brain learns to recognize things. Imagine teaching a computer to tell the difference
+              between <strong>cats</strong> and <strong>dogs</strong> in pictures. First, you show the computer lots of
+              pictures of cats and dogs, telling it which is which. The computer learns patterns, like the shape of ears
+              or the fur texture, that help it distinguish between the two.</p>
+
+            <p>Once the computer has learned from many examples, it can start looking at new pictures and making its own
+              guesses about whether it's a cat or a dog. Just like when we learn, the computer gets better the more
+              pictures it sees and learns from.</p>
+
+            <p>These models are used in <strong>medicine</strong> too. For example, doctors can feed the model thousands
+              of images of healthy and diseased eyes. The model learns the tiny details that show differences between
+              the two. Then, when a new eye image is given to the model, it uses its <em>'learning'</em> to predict
+              whether the eye might have a disease.</p>
+
+            <p>This technology helps doctors catch problems early and make better decisions about treatment. It's like
+              training a super-smart assistant that can look at pictures and tell us important information about our
+              health.</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item border-0 rounded-bottom-5">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed fw-bolder bg-black rounded-bottom-5" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+            aria-controls="collapseThree">
+            How Machine Learning Can Help for Health and Ecosystem?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body bg-black rounded-bottom-5">
+            <p><strong>Machine learning models</strong> have the potential to be <strong>super helpful</strong> in both
+              taking care of our <strong>health</strong> and protecting our <strong>environment</strong>. Imagine having
+              a <strong>clever digital helper</strong> that can spot early signs of <strong>diseases</strong> from
+              medical tests, just like a detective looking for clues. These models can analyze tons of data from
+              patients and learn to detect patterns that even <strong>doctors</strong> might miss. This means catching
+              health issues early when they're easier to treat.</p>
+
+            <p>Now, let's think about our <strong>planet</strong>. <strong>Ecosystems</strong>, like forests and oceans,
+              are <strong>complex</strong> and <strong>fragile</strong>. Machine learning models can study data about
+              <strong>animals</strong>, <strong>plants</strong>, and the <strong>environment</strong> to understand how
+              everything interacts. This knowledge helps us make <strong>informed decisions</strong> to protect these
+              <strong>delicate systems</strong>. For example, models could predict when a forest might be at risk of a
+              <strong>wildfire</strong>, allowing authorities to take action sooner.
+            </p>
+
+            <p>In a nutshell, these <strong>smart models</strong> act like <strong>problem-solving buddies</strong> for
+              both our <strong>well-being</strong> and the <strong>planet's health</strong>. They analyze big amounts of
+              information to give us a hand in <strong>staying healthy</strong> and taking better care of the world we
+              live in.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <img style="height:20px;" src="https://seeklogo.com/images/T/tensorflow-logo-02FCED4F98-seeklogo.com.png"
+            alt="">
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">Tensorflow.js</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-github"></i></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-solid fa-globe"></i></a></li>
+      </ul>
+    </footer>
+  </div>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script>
+
+
+
+
+
+
+
+  // startup screen
+
+  function offloginScreen() {
+    console.log(1);
+    // loginScreen.style.display = 'none';
+    // loginScreen.classList.add("d-none");
+    loginScreen.classList.add("rounded-5");
+    loginScreen.classList.add("animate__slideOutUp");
+  }
+
+
+
+  //-----------------------------------------------------------------------------------------
+  //--------------------THE MAIN PART OF THE MACHINE LEARNING--------------------------------
+  //-----------------------------------------------------------------------------------------
+
+
+
+</script>
+<script src="script.js"></script>
+
+</html>
