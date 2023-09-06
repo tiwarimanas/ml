@@ -52,52 +52,61 @@ async function init() {
 // }
 
 const data = {
-    "Normal": `   <h5 class="text-warning fw-bolder animate__animated animate__fadeInUp">Normal</h5>
-
-                <h6 class="animate__animated animate__fadeInDown">Image Analysis Results:</h6>
-                <p  class="animate__animated animate__fadeInDown">The machine learning model has analyzed the fundus image of the eye and determined that it appears to be normal.</p>
-
-                <h6 class="animate__animated animate__fadeInDown">About Normal Eye Health:</h6>
-                <p  class="animate__animated animate__fadeInDown">A normal fundus image indicates that the eye is currently free from significant abnormalities or eye conditions. However, regular eye check-ups are still recommended to monitor your eye health and catch any potential issues early.</p>
-
-                <h6 class="animate__animated animate__fadeInDown">Important Note:</h6>
-                <p  class="animate__animated animate__fadeInDown">Please bear in mind that the model's prediction is experimental and in an early stage. While it can identify normal appearances, it might also make mistakes. Regular consultations with a qualified eye care professional are crucial for maintaining your eye health.</p>
-
+    "Healthy": `   <p>We have not found any signs of Diabetic Retinopathy (DR) in the fundus photo. It appears to be healthy.</p>
+                    <ul>
+                        <li>Prediction: <span class="text-warning fw-bolder">Healthy</span></li>
+                    </ul>
             `,
-    "Cataract": `<h5 class="text-warning fw-bolder animate__animated animate__fadeInUp">Cataract</h5>
-
-                <h6>Image Analysis Results:</h6>
-                <p>The machine learning model has predicted that the fundus image of the eye appears to show signs of Cataract.</p>
-
-                <h6>About Cataract:</h6>
-                <p>Cataract is a condition characterized by the clouding of the lens in the eye, leading to blurry vision and reduced visual clarity. It's a common age-related condition but can also be caused by other factors.</p>
-
-                <h6>Important Note:</h6>
-                <p>Keep in mind that the model's prediction is in an experimental and early stage. There is a possibility of incorrect predictions. If you suspect any issues with your eyesight, it's important to seek guidance from a qualified medical professional for proper examination and diagnosis.</p>
+    "Mild DR": `<p>We have detected signs of mild Diabetic Retinopathy (DR) in your fundus photo.</p>
+                    <p>Additional Information about Mild DR:</p>
+                    <ul>
+                        <li>Prediction: <span class="text-warning fw-bolder">Mild DR</span></li>
+                        <li>Mild DR is an early stage of diabetic retinopathy where small blood vessels in the retina start to show damage.</li>
+                        <li>Early detection and management are crucial in preventing the progression of DR to more severe stages.</li>
+                        <li>Regular eye check-ups and diabetes control are recommended to monitor and manage the condition.</li>
+                    </ul>
+                    <p>If you have any questions or need further information or guidance regarding mild DR, please feel free to contact us.</p>
 
                 `,
-    "Glaucoma": `<h5 class="text-warning fw-bolder animate__animated animate__fadeInUp">Glaucoma</h5>
+    "Moderate DR": `
+                    <p>We have detected signs of moderate Diabetic Retinopathy (DR) in your fundus photo.</p>
+                    <p>Additional Information about Moderate DR:</p>
+                    <ul>
+                        <li>Prediction: <span class="text-warning fw-bolder">Moderate DR</span></li>
+                        <li>Moderate DR is an advanced stage of diabetic retinopathy where blood vessels in the retina become more damaged.</li>
+                        <li>Timely intervention is crucial at this stage to prevent further vision loss.</li>
+                        <li>Treatment options may include laser therapy or injections to manage the condition.</li>
+                        <li>It's essential to consult with an eye specialist for proper evaluation and treatment.</li>
+                    </ul>
+                    <p>If you have any questions or need further information or guidance regarding moderate DR, please feel free to contact us.</p>
 
-                <h6 class="animate__animated animate__fadeInDown">Image Analysis Results:</h6>
-                <p class="animate__animated animate__fadeInDown">The machine learning model has predicted that the fundus image of the eye appears to show signs of Glaucoma.</p>
-                
-                <h6 class="animate__animated animate__fadeInDown">About Glaucoma:</h6>
-                <p  class="animate__animated animate__fadeInDown">Glaucoma is an eye condition that damages the optic nerve, often due to high intraocular pressure. It can lead to vision loss and even blindness if left untreated.</p>
-                
-                <h6 class="animate__animated animate__fadeInDown">Important Note:</h6>
-                <p  class="animate__animated animate__fadeInDown">Please remember that the model's prediction is experimental and in an early stage. It is possible for the model to make incorrect predictions. If you suspect any eye-related issues, it's crucial to consult a qualified medical professional for a thorough examination and diagnosis.</p>
-                `,
-    "Diabetic Retinopathy": `<h5 class="text-warning fw-bolder animate__animated animate__fadeInUp">Diabetic Retinopathy</h5>
+                      `,
+    "Proliferate DR": `
+                            <p>We have detected signs of proliferative Diabetic Retinopathy (DR) in your fundus photo.</p>
+                            <p>Additional Information about Proliferative DR:</p>
+                            <ul>
+                                <li>Prediction: <span class="text-warning fw-bolder">Proliferate DR</span></li>
+                                <li>Proliferative DR is an advanced stage of diabetic retinopathy characterized by the growth of abnormal blood vessels in the retina.</li>
+                                <li>It is a severe condition that can lead to vision loss if left untreated.</li>
+                                <li>Treatment options may include laser surgery or injections to prevent the progression of the disease.</li>
+                                <li>Immediate consultation with an eye specialist is critical to preserve your vision.</li>
+                            </ul>
+                            <p>If you have any questions or need further information or guidance regarding proliferative DR, please feel free to contact us.</p>
 
-                            <h6 class="animate__animated animate__fadeInDown">Image Analysis Results:</h6>
-                            <p  class="animate__animated animate__fadeInDown">The machine learning model has predicted that the fundus image of the eye appears to show signs of Diabetic Retinopathy.</p>
+                        `,
+    "Severe DR": `
+                    <p>We have detected signs of severe Diabetic Retinopathy (DR) in your fundus photo.</p>
+                    <p>Additional Information about Severe DR:</p>
+                    <ul>
+                        <li>Prediction: <span class="text-warning fw-bolder">Severe DR</span></li>
+                        <li>Severe DR is an advanced stage of diabetic retinopathy where extensive damage to blood vessels in the retina has occurred.</li>
+                        <li>It poses a high risk of vision loss and complications like retinal detachment.</li>
+                        <li>Prompt and intensive medical treatment, such as surgery or injections, is typically required.</li>
+                        <li>Immediate consultation with an eye specialist is crucial to address this condition effectively.</li>
+                    </ul>
+                    <p>If you have any questions or need further information or guidance regarding severe DR, please feel free to contact us.</p>
 
-                            <h6 class="animate__animated animate__fadeInDown">About Diabetic Retinopathy:</h6>
-                            <p  class="animate__animated animate__fadeInDown">Diabetic Retinopathy is a diabetes-related eye condition that damages blood vessels in the retina. It can lead to vision impairment and blindness if not managed properly.</p>
-
-                            <h6 class="animate__animated animate__fadeInDown">Important Note:</h6>
-                            <p  class="animate__animated animate__fadeInDown">Please be aware that the model's prediction is experimental and in an early stage. Mistakes can occur in its predictions. If you suspect any eye-related issues, it is essential to consult a qualified medical professional for a comprehensive evaluation and accurate diagnosis.</p>
-                        `
+                    `
     // Add more class information as needed
 };
 
