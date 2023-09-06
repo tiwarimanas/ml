@@ -136,7 +136,7 @@ async function predict() {
                 console.log(data[className]);
                 typeText(data[className]);
             } else{
-                typeText(data["Diabetic Retinopathy"]);
+                typeText("Something went wrong, Try Again!");
             }
 
             classbox.innerHTML = className;
