@@ -55,7 +55,7 @@
 
   <div class="container my-5">
     <div class="row">
-      <div class="col-sm-6 my-2">
+      <div class="col-sm-3 my-2">
 
         <div class="card bg-black rounded-5 border" style="width: 240px; margin: auto;">
           <img id="input-image" src="showcase.jfif" alt="Input Image" width="240" height="240"
@@ -64,16 +64,6 @@
                 </div> -->
           <div class="card-body">
             <div id="classbox" class="text-center text-warning fw-bolder"></div>
-
-            <div class="dropdown">
-              <button class="btn w-100 rounded-5 dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-
-              </button>
-              <div class="dropdown-menu p-2 rounded-4" style="width: 200px;">
-                <div id="label-container" class="my-2 h-100"></div>
-              </div>
-            </div>
             <hr>
             <input type="file" class="form-control my-1 rounded-5 my-2 d-none" id="image-input" accept="image/*"
               style="font-size: 12px;">
@@ -85,6 +75,11 @@
 
         </div>
 
+      </div>
+      <div class="col-sm-3 my-2">
+        <div class="card card-body" style="width: 300px; margin: auto;">
+          <div id="label-container" class="my-2 h-100"></div>
+        </div>
       </div>
       <div class="col-sm-6 my-2">
         <div class="card card-body rounded-5 bg-black" style="height: 70vh; overflow-y: scroll;">

@@ -3,6 +3,7 @@
 
 // the link to your model provided by Teachable Machine export panel
 // const URLm = "https://teachablemachine.withgoogle.com/models/6He_0q8_c/";
+// const URLm = "https://teachablemachine.withgoogle.com/models/rRCA-SHQi/";
 const URLm = "https://teachablemachine.withgoogle.com/models/rRCA-SHQi/";
 const sbtn = document.getElementById("sbtn");
 const classbox = document.getElementById("classbox");
