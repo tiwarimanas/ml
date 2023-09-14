@@ -52,60 +52,115 @@ async function init() {
 // }
 
 const data = {
-    "Healthy": `   <p>We have not found any signs of Diabetic Retinopathy (DR) in the fundus photo. It appears to be healthy.</p>
-                    <ul>
-                        <li>Prediction: <span class="text-warning fw-bolder">Healthy</span></li>
-                    </ul>
+    "Healthy": `  <div class="card card-body rounded-4 my-2 border-0 fs-5 fw-bold animate__animated animate__fadeInDown">
+               Healthy
+              </div>
+              <div class="card card-body rounded-4 my-2 bg-black animate__animated animate__fadeInDown" style="font-size:13px;">
+                The fundus image you uploaded has been analyzed, and We pleased to inform you that it appears to be healthy.
+                
+                <span class="badge text-secondary" style="width:max-content;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Prediction Warning
+                </span>
+                  <span><a href="https://www.google.com/search?q=Healthy fundus image" class="btn btn-outline-warning rounded-4 my-2"><i class="fa-brands fa-google"></i>oogle it <i class="fa-solid fa-arrow-right"></i></a></span>
+
+              </div>
             `,
-    "Mild DR": `<p>We have detected signs of mild Diabetic Retinopathy (DR) in your fundus photo.</p>
-                    <p>Additional Information about Mild DR:</p>
-                    <ul>
-                        <li>Prediction: <span class="text-warning fw-bolder">Mild DR</span></li>
-                        <li>Mild DR is an early stage of diabetic retinopathy where small blood vessels in the retina start to show damage.</li>
-                        <li>Early detection and management are crucial in preventing the progression of DR to more severe stages.</li>
-                        <li>Regular eye check-ups and diabetes control are recommended to monitor and manage the condition.</li>
-                    </ul>
-                    <p>If you have any questions or need further information or guidance regarding mild DR, please feel free to contact us.</p>
+    "Mild DR": ` <div class="card card-body rounded-4 my-2 border-0 fs-5 fw-bold animate__animated animate__fadeInDown">
+               Mild DR
+              </div>
+              <div class="card card-body rounded-4 my-2 bg-black animate__animated animate__fadeInDown" style="font-size:13px;">
+                <p>Mild Diabetic Retinopathy is an early stage of a diabetes-related eye condition called diabetic retinopathy. In this stage, small blood vessels in the retina, which is the light-sensitive tissue at the back of the eye, are damaged due to the effects of diabetes. This damage may result in tiny hemorrhages (microaneurysms) and the swelling of retinal blood vessels (macular edema).</p>
 
+      <p>In terms of vision for a person suffering from mild diabetic retinopathy, they may not experience significant visual symptoms initially. However, over time, as the condition progresses, vision problems can develop. These may include:</p>
+    <ul>
+        <li>Blurred or fluctuating vision: Mild blurriness or occasional blurriness in vision can occur due to the early changes in the retina.</li>
+        <li>Difficulty focusing: The ability to focus on objects, especially close-up, may be affected.</li>
+        <li>Dark or empty areas in vision: Some individuals may notice small dark spots or gaps in their field of vision, which can result from microaneurysms or small hemorrhages.</li>
+        <li>Reduced night vision: It may become harder to see in low-light conditions.</li>
+        <li>Color vision changes: Colors may appear faded or less vibrant.</li>
+    </ul>
+
+    <p>It's important to note that mild diabetic retinopathy can progress to more severe stages if not managed properly. Regular eye examinations with an eye specialist (ophthalmologist) are essential for early detection and appropriate management. Tight control of blood sugar levels and other diabetes-related factors can help slow the progression of the condition and reduce the risk of vision loss.</p>
+
+              <span class="badge text-secondary" style="width:max-content;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Prediction Warning
+                </span>
+                  <span><a href="https://www.google.com/search?q=Mild DR" class="btn btn-outline-warning rounded-4 my-2"><i class="fa-brands fa-google"></i>oogle it <i class="fa-solid fa-arrow-right"></i></a></span>
+
+              </div>
                 `,
-    "Moderate DR": `
-                    <p>We have detected signs of moderate Diabetic Retinopathy (DR) in your fundus photo.</p>
-                    <p>Additional Information about Moderate DR:</p>
-                    <ul>
-                        <li>Prediction: <span class="text-warning fw-bolder">Moderate DR</span></li>
-                        <li>Moderate DR is an advanced stage of diabetic retinopathy where blood vessels in the retina become more damaged.</li>
-                        <li>Timely intervention is crucial at this stage to prevent further vision loss.</li>
-                        <li>Treatment options may include laser therapy or injections to manage the condition.</li>
-                        <li>It's essential to consult with an eye specialist for proper evaluation and treatment.</li>
-                    </ul>
-                    <p>If you have any questions or need further information or guidance regarding moderate DR, please feel free to contact us.</p>
+    "Moderate DR": ` <div class="card card-body rounded-4 my-2 border-0 fs-5 fw-bold animate__animated animate__fadeInDown">
+               Moderate DR
+              </div>
+              <div class="card card-body rounded-4 my-2 bg-black animate__animated animate__fadeInDown" style="font-size:13px;">
+                
+                <p>Moderate Diabetic Retinopathy is an intermediate stage of diabetic retinopathy, a diabetes-related eye condition. In this stage, the damage to the blood vessels in the retina becomes more pronounced compared to the mild stage. The blood vessels may become blocked or leak more severely.</p>
 
+      <p>As diabetic retinopathy progresses to the moderate stage, individuals may experience more noticeable vision changes. The vision problems associated with moderate diabetic retinopathy include:</p>
+    <ul>
+        <li>Blurred vision: Blurriness in vision becomes more significant due to increased retinal damage.</li>
+        <li>Floaters: Small specks or dark spots may appear to float in the field of vision.</li>
+        <li>Difficulty reading or seeing fine details: The ability to read or see small details may be impaired.</li>
+        <li>Partial vision loss: Some areas of the visual field may become distorted or obscured.</li>
+        <li>Impaired color vision: Colors may appear faded or distorted.</li>
+    </ul>
+
+    <p>It's crucial for individuals with moderate diabetic retinopathy to seek prompt medical attention from an eye specialist (ophthalmologist). Treatment options may include laser therapy or injections to manage retinal swelling and prevent further vision deterioration. Additionally, maintaining tight control of blood sugar levels and other diabetes-related factors is essential to slow the progression of the condition and protect vision.</p>
+
+                
+                <span class="badge text-secondary" style="width:max-content;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Prediction Warning
+                </span>
+                  <span><a href="https://www.google.com/search?q=Moderate DR" class="btn btn-outline-warning rounded-4 my-2"><i class="fa-brands fa-google"></i>oogle it <i class="fa-solid fa-arrow-right"></i></a></span>
+
+              </div>
                       `,
-    "Proliferate DR": `
-                            <p>We have detected signs of proliferative Diabetic Retinopathy (DR) in your fundus photo.</p>
-                            <p>Additional Information about Proliferative DR:</p>
-                            <ul>
-                                <li>Prediction: <span class="text-warning fw-bolder">Proliferate DR</span></li>
-                                <li>Proliferative DR is an advanced stage of diabetic retinopathy characterized by the growth of abnormal blood vessels in the retina.</li>
-                                <li>It is a severe condition that can lead to vision loss if left untreated.</li>
-                                <li>Treatment options may include laser surgery or injections to prevent the progression of the disease.</li>
-                                <li>Immediate consultation with an eye specialist is critical to preserve your vision.</li>
-                            </ul>
-                            <p>If you have any questions or need further information or guidance regarding proliferative DR, please feel free to contact us.</p>
+    "Proliferate ...": `  <div class="card card-body rounded-4 my-2 border-0 fs-5 fw-bold animate__animated animate__fadeInDown">
+               Proliferate DR
+              </div>
+              <div class="card card-body rounded-4 my-2 bg-black animate__animated animate__fadeInDown" style="font-size:13px;">
+                
+                <p>Proliferative Diabetic Retinopathy is an advanced and severe stage of diabetic retinopathy, a diabetes-related eye condition. In this stage, there is widespread damage to the blood vessels in the retina, and new, fragile blood vessels begin to grow on the surface of the retina. These new blood vessels are weak and prone to bleeding, leading to potentially serious vision problems.</p>
+<p>Proliferative Diabetic Retinopathy can have significant and potentially devastating effects on vision. Vision problems associated with proliferative diabetic retinopathy may include:</p>
+    <ul>
+        <li>Severe visual impairment: Vision loss can be profound, making it difficult to see clearly or even navigate daily tasks.</li>
+        <li>Floaters and flashes of light: Due to bleeding and retinal damage, individuals may experience sudden flashes of light and numerous floaters in their field of vision.</li>
+        <li>Partial or total blindness: In severe cases, proliferative diabetic retinopathy can lead to partial or total blindness if left untreated.</li>
+        <li>Distorted vision: Straight lines may appear wavy or distorted due to the abnormal growth of blood vessels on the retina.</li>
+        <li>Dark or empty areas in vision: Vision may have significant gaps or dark spots due to retinal hemorrhages.</li>
+    </ul>
+     <p>Immediate medical attention from an eye specialist (ophthalmologist) is crucial for individuals with proliferative diabetic retinopathy. Treatment options may include laser therapy or surgery to seal or remove abnormal blood vessels, along with other interventions to manage complications. Strict control of blood sugar levels and other diabetes-related factors is essential to prevent further damage and protect vision.</p>
 
+               <span class="badge text-secondary" style="width:max-content;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Prediction Warning
+                </span>
+                  <span><a href="https://www.google.com/search?q=Proliferate DR" class="btn btn-outline-warning rounded-4 my-2"><i class="fa-brands fa-google"></i>oogle it <i class="fa-solid fa-arrow-right"></i></a></span>
+
+              </div>
                         `,
-    "Severe DR": `
-                    <p>We have detected signs of severe Diabetic Retinopathy (DR) in your fundus photo.</p>
-                    <p>Additional Information about Severe DR:</p>
-                    <ul>
-                        <li>Prediction: <span class="text-warning fw-bolder">Severe DR</span></li>
-                        <li>Severe DR is an advanced stage of diabetic retinopathy where extensive damage to blood vessels in the retina has occurred.</li>
-                        <li>It poses a high risk of vision loss and complications like retinal detachment.</li>
-                        <li>Prompt and intensive medical treatment, such as surgery or injections, is typically required.</li>
-                        <li>Immediate consultation with an eye specialist is crucial to address this condition effectively.</li>
-                    </ul>
-                    <p>If you have any questions or need further information or guidance regarding severe DR, please feel free to contact us.</p>
+    "Severe DR": `<div class="card card-body rounded-4 my-2 border-0 fs-5 fw-bold animate__animated animate__fadeInDown">
+               Severe DR
+              </div>
+              <div class="card card-body rounded-4 my-2 bg-black animate__animated animate__fadeInDown" style="font-size:13px;">
+                
+                 <p>Severe Diabetic Retinopathy is an advanced and critical stage of diabetic retinopathy, a diabetes-related eye condition. In this stage, there is extensive and severe damage to the blood vessels in the retina. This damage can lead to a variety of serious complications that can significantly impact vision and overall eye health.</p>
+<p>Severe Diabetic Retinopathy can cause profound and often irreversible vision problems. Vision issues associated with severe diabetic retinopathy may include:</p>
+    <ul>
+        <li>Severe visual impairment: Vision loss can be extensive, making it extremely challenging to see and perform daily tasks.</li>
+        <li>Blindness: In some cases, severe diabetic retinopathy can result in total blindness if left untreated.</li>
+        <li>Extensive bleeding in the eye: Severe retinal damage can lead to extensive bleeding within the eye, causing sudden and severe vision changes.</li>
+        <li>Retinal detachment: The retina may become detached from the back of the eye, leading to severe visual distortion and loss.</li>
+        <li>Glaucoma: Severe diabetic retinopathy can increase the risk of developing glaucoma, which can further worsen vision.</li>
+    </ul>
 
+    <p>Immediate and urgent medical attention from an eye specialist (ophthalmologist) is crucial for individuals with severe diabetic retinopathy. Treatment options may include surgery to repair retinal detachment, laser therapy to address bleeding and abnormal blood vessels, and other interventions to manage complications. Strict control of blood sugar levels and other diabetes-related factors is essential to prevent further damage and protect any remaining vision.</p>
+
+                <span class="badge text-secondary" style="width:max-content;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Prediction Warning
+                </span>
+                  <span><a href="https://www.google.com/search?q=Severe DR" class="btn btn-outline-warning rounded-4 my-2"><i class="fa-brands fa-google"></i>oogle it <i class="fa-solid fa-arrow-right"></i></a></span>
+
+              </div>
                     `
     // Add more class information as needed
 };
@@ -131,12 +186,12 @@ async function predict() {
         console.log(prediction[i]);
 
         // Check if the prediction is more than 66% confident
-        if (prediction[i].probability > 0.66) {
+        if (prediction[i].probability > 0.50) {
             if (data[className]) {
                 console.log(data[className]);
                 typeText(data[className]);
-            } else{
-                typeText("Something went wrong, Try Again!");
+            }else{
+                typeText("Something went wrong, The Analysis Could not be displayed! No big Problem. See the prediction percentage on right.");
             }
 
             classbox.innerHTML = className;
