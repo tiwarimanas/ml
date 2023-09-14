@@ -46,7 +46,7 @@
 
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand bg-black rounded-5 p-1 px-2" href="#">
+      <a class="navbar-brand bg-black rounded-5 p-1 px-2" href="https://tiwarimanas.github.io/">
         <i class="fa-brands fa-github"></i>
         Manas Tiwari
       </a>
@@ -86,7 +86,7 @@
           <h4 class="fw-bolder">Analysis Result</h4>
           <hr>
           <div id="typing-text" class="animate__animated animate__fadeIn">
-          <div class="text-secondary">
+<!--           <div class="text-secondary">
             <h5>Using the Model: Quick Guide</h5>
             <p>Here, you'll find the analysis results.</p>
             <ol>
@@ -97,8 +97,34 @@
             </ol>
             <p><span class="text-danger fw-bolder">Remember</span> , the model's predictions might be inaccurate due to
               its experimental nature. Use these insights as helpful hints, but don't rely solely on them.</p>
-          </div>
+          </div> -->
+          
+              <div class="card card-body rounded-4 my-2 border-0 fs-5 fw-bold animate__animated animate__fadeInDown">
+               Quick Guide
+              </div>
+              <div class="card card-body rounded-4 my-2 bg-black animate__animated animate__fadeInDown" style="font-size:13px;">
+                <ol>
+                    <li><strong>Capture Image:</strong> Take a clear fundus photo or one centered on the retina.</li>
+                    <li><strong>Upload:</strong> Click "Upload" to send the image to the model.</li>
+                    <li><strong>Predict:</strong> Hit "Predict" and wait for the model to analyze the image.</li>
+                    <li><strong>Insights:</strong> View results on the left.</li>
+                    <li><strong>Additional Info:</strong> Find extra details and recommendations here.</li>
+                </ol>
+                <p class="bg-dark rounded-5 px-3 py-3"><strong>Warning:</strong> Please note that the model may occasionally generate incorrect predictions. It is essential to consult with a medical professional for accurate diagnosis and advice, especially in critical healthcare decisions.</p>
+
+                <span class="badge text-secondary" style="width:max-content;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Prediction Warning
+                </span>
+                  <span><a href="https://www.google.com/search?q=What is diabetic RetinoPathy?" class="btn btn-outline-warning rounded-4 my-2"><i class="fa-brands fa-google"></i>oogle it <i class="fa-solid fa-arrow-right"></i></a></span>
+
+    
+              </div>
+            
+             
+              
+
         </div>
+          
           <!-- <button class="btn btn-dark position-absolute rounded-5 bottom-0 start-50 translate-middle w-75">Generate
             Report</button> -->
         </div>
@@ -226,6 +252,7 @@
 
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 <script>
@@ -256,5 +283,6 @@
 
 </script>
 <script src="script.js"></script>
+
 
 </html>
