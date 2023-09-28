@@ -1,10 +1,14 @@
 // More API functions here:
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
-// the link to your model provided by Teachable Machine export panel
+// don't use below links:
 // const URLm = "https://teachablemachine.withgoogle.com/models/6He_0q8_c/";
 // const URLm = "https://teachablemachine.withgoogle.com/models/rRCA-SHQi/";
-const URLm = "https://teachablemachine.withgoogle.com/models/AG1gex57q/";
+
+// the another great version with 200 epochs
+// const URLm = "https://teachablemachine.withgoogle.com/models/dhoJb5nh5/"; 
+// the below is the best versions with 1000 epochs
+const URLm = "https://teachablemachine.withgoogle.com/models/AG1gex57q/"; 
 const sbtn = document.getElementById("sbtn");
 const classbox = document.getElementById("classbox");
 let imgin = document.getElementById('input-image');
